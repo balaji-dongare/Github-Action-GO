@@ -1,0 +1,19 @@
+name: Github Action Go1
+
+on: [push]
+
+jobs:
+  run-shell-commands:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: show hostname
+        run: hostname
+      - name: install Go1
+        run: |
+          wget https://dl.google.com/go/go1.13.linux-amd64.tar.gz
+          sudo tar -C /usr/local -xzf go1.13.linux-amd64.tar.gz
+          export PATH=$PATH:/usr/local/go/bin
+          source ~/.profile
+          go version
+
+
