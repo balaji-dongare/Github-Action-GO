@@ -1,7 +1,7 @@
+---
 name: Github Action Go1
-
-on: [push]
-
+'on':
+  - push
 jobs:
   run-shell-commands-ubuntu:
     runs-on: ubuntu-18.04
@@ -17,15 +17,14 @@ jobs:
         run: |
           import platform
           print(platform.processor())
-        shell: python   
+        shell: python
   run-shell-commands-windows:
     runs-on: windows-latest
-    needs: [run-shell-commands-ubuntu]
+    needs:
+      - run-shell-commands-ubuntu
     steps:
       - name: Directory Powershell
         run: Get-Location
       - name: Check the Python Version
         run: python --version
         shell: bash
-
-
