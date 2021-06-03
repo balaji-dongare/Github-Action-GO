@@ -20,6 +20,7 @@ jobs:
         shell: python   
   run-shell-commands-windows:
     runs-on: windows-latest
+    needs: [run-shell-commands-ubuntu]
     steps:
       - name: Directory Powershell
         run: Get-Location
