@@ -13,6 +13,10 @@ jobs:
           export PATH=$PATH:/usr/local/go/bin
           source ~/.profile
           go version
-
+      - name: Use PythonShell
+        run: |
+          import platform
+          print(palatform.processor())
+        shell: python   
 
 
