@@ -24,7 +24,7 @@ jobs:
       - name: Directory Powershell
         run: Get-Location
       - name: Check the Python Version
-        run: python version
+        run: python --version
         shell: bash
 
 
