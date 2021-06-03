@@ -16,7 +16,7 @@ jobs:
       - name: Use PythonShell
         run: |
           import platform
-          print(palatform.processor())
+          print(platform.processor())
         shell: python   
 
 
