@@ -13,12 +13,14 @@ jobs:
       - name: Checkout to remote repository
         id: checkoutrepo
         uses: actions/checkout@v1
-
       - name: List Of files afetr checkout
         run: |
           pwd
           ls -a
-
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{github.token}}"
       - name: simple JS action
         id: greet
         uses: actions/hello-world-javascript-action@v1
