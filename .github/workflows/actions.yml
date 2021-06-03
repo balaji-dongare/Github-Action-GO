@@ -8,8 +8,15 @@ jobs:
     steps:
       - name: List Of files
         run: |
-         pwd
-         ls
+          pwd
+          ls
+      - name: Checkout to remote repository
+        id: checkoutrepo
+        uses: actions/checkout@v1
+      - name: List Of files afetr checkout
+        run: |
+          pwd
+          ls
       - name: simple JS action
         id: greet
         uses: actions/hello-world-javascript-action@v1
