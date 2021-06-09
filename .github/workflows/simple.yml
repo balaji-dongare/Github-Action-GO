@@ -2,7 +2,7 @@
 name: Github Action Go1
 'on':
   # - push
-  - pull_request
+  pull_request:
 jobs:
   run-shell-commands-ubuntu:
     runs-on: ubuntu-18.04
