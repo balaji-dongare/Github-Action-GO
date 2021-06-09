@@ -14,7 +14,7 @@ jobs:
       - name: Checkout to remote repository
         id: checkoutrepo
         uses: actions/checkout@v1
-      - name: List Of files afetr checkout
+      - name: List Of files after checkout
         run: |
           pwd
           ls -a
