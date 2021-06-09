@@ -1,6 +1,8 @@
 ---
 name: Github Action Go1
 'on':
+  push:
+    
   pull_request:
    types:
      - opened
