@@ -67,7 +67,7 @@ jobs:
           STRATEGY_CONTEXT: ${{ toJSON(strategy) }}
         run: echo "$STRATEGY_CONTEXT"
       - name: Dump matrix context
-        if: alway()
+        if: always()
         env:
           MATRIX_CONTEXT: ${{ toJSON(matrix) }}
         run: echo "$MATRIX_CONTEXT"
