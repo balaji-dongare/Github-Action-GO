@@ -42,7 +42,7 @@ jobs:
   Conditions:
     name:  If Condition
     runs-on: ubuntu-latest
-    if: github.event-name=='push'
+    if: github.event_name=='push'
     steps:
       - name: Dump GitHub context
         env:
@@ -54,6 +54,7 @@ jobs:
           JOB_CONTEXT: ${{ toJSON(job) }}
         run: echo "$JOB_CONTEXT"
       - name: Dump steps context
+        if: success()
         env:
           STEPS_CONTEXT: ${{ toJSON(steps) }}
         run: echo "$STEPS_CONTEXT"
