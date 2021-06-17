@@ -2,7 +2,7 @@ name: Expression and contexts
 on: push
 
 jobs:
-  one:
+  Expression-contexts:
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
@@ -29,3 +29,13 @@ jobs:
         env:
           MATRIX_CONTEXT: ${{ toJSON(matrix) }}
         run: echo "$MATRIX_CONTEXT"
+  Functions:
+    name: PreDefined Functions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump
+        run: |
+         echo ${{ contains( 'hello','ll' ) }}
+         echo ${{ startsWith( 'hello','he' ) }}
+         echo ${{ endsWith( 'hello','lo' ) }}
+         echo ${{ format( 'Hello {0} {1} {2}','World','!','!') }}
