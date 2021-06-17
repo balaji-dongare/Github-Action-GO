@@ -2,7 +2,7 @@ name: Git Env Vars and create issue on commit
 on: push
 jobs:
   create-file-and-commit:
-    name: Create issue using REST-API
+    name: Create File And Push
     runs-on: ubuntu-latest
     steps:
      - name: Create a file and push it to repp
