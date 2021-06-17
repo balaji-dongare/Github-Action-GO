@@ -1,4 +1,4 @@
-name: Git Env Vars and create issue on commit
+name: Git Env Vars and create issue on commit and create file and push
 on: push
 jobs:
   create-file-and-commit:
