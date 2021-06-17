@@ -1,45 +1,45 @@
-# ---
-# name: Actions workflow
-# 'on':
-#   # repository_dispatch:
-#   #   types: [build]
-#   push:
-#     branches:
-#       - master
-#       - 'feat/*' # eg. branches like  feat/f1 , feat/f2 etc. dosn't match :feta/fe/as
-#       - 'feat/**' # eg. branches like  feta/fe/as,feat/test/sdd
+---
+name: Actions workflow
+'on':
+  # repository_dispatch:
+  #   types: [build]
+  push:
+    branches:
+      - master
+      - 'feat/*' # eg. branches like  feat/f1 , feat/f2 etc. dosn't match :feta/fe/as
+      - 'feat/**' # eg. branches like  feta/fe/as,feat/test/sdd
     
-#   # schedule:
-#   #   - cron: "0/5 * * * *"
+  # schedule:
+  #   - cron: "0/5 * * * *"
 
-#   pull_request:
-#     types: [opened,closed, reopened,assigned]
+  pull_request:
+    types: [opened,closed, reopened,assigned]
 
-# jobs:
-#   run-github-action:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Client Paylod
-#         run: echo ${{github.event.client_payload.env}}
-#       - name: List Of files
-#         run: |
-#           pwd
-#           ls
-#       - name: Checkout to remote repository
-#         id: checkoutrepo
-#         uses: actions/checkout@v1
-#       - name: List Of files after checkout
-#         run: |
-#           pwd
-#           ls -a
-#           echo $GITHUB_SHA
-#           echo $GITHUB_REPOSITORY
-#           echo $GITHUB_WORKSPACE
-#           echo "${{github.token}}"
-#       - name: simple JS action
-#         id: greet
-#         uses: actions/hello-world-javascript-action@v1
-#         with:
-#           who-to-greet: Jhon
-#       - name: get greet time
-#         run: echo "${{steps.greet.outputs.time}}"
+jobs:
+  run-github-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Client Paylod
+        run: echo ${{github.event.client_payload.env}}
+      - name: List Of files
+        run: |
+          pwd
+          ls
+      - name: Checkout to remote repository
+        id: checkoutrepo
+        uses: actions/checkout@v1
+      - name: List Of files after checkout
+        run: |
+          pwd
+          ls -a
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{github.token}}"
+      - name: simple JS action
+        id: greet
+        uses: actions/hello-world-javascript-action@v1
+        with:
+          who-to-greet: Jhon
+      - name: get greet time
+        run: echo "${{steps.greet.outputs.time}}"
