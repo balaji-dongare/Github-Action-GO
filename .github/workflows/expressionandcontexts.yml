@@ -42,7 +42,7 @@ jobs:
   Conditions:
     name:  If Condition
     runs-on: ubuntu-latest
-    if: github.event-name=="push"
+    if: github.event-name=='push'
     steps:
       - name: Dump GitHub context
         env:
