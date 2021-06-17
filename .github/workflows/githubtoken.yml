@@ -16,3 +16,24 @@ jobs:
             "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_."
             }' \
           --fail
+     - name: Create a file and push it to repp
+       run: |
+         pwd
+         ls -a
+         git init 
+         git remote add origin "https://${GITHUB_ACTOR}: ${{ secrets.GITHUB_TOKEN }}@github.com/GITHUB_REPOSITORY.git"     
+         git confi --global.email "bob@bot.com"
+         git confi --global.name "bob"
+         git fetch
+         git chekcout master
+         git branch --set-upstream-to=origin/master
+         git pull
+         pwd 
+         ls -a
+         echo $RANDOM >> Random.txt
+         ls -a
+         git add -A
+         git commit -m "feat: Creating aa file and pushing"
+         git push
+        #  git remote add origin "git@github.com:balaji-dongare/Github-Action-GO.git" - when you configured you ssh key to github on line no #24
+             
