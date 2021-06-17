@@ -5,12 +5,11 @@ jobs:
     name: Decrypt the secret file and access the keys
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
       - name: Decrypt file
-        uses: actions/checkout@v1
         env:
           PASSPHRASE: ${{ secrets.ENCRYPT_DECRYP_KEY }}
-        run: |
-         gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/secrets.json secretskeys.json.gpg
+        run: gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/secrets.json secretskeys.json.gpg
       - name: Print the Decrypted file contents
         run: cat $HOME/secrets.json
         # gpg --symmetric --cipher-algo AES256 <filepath/file.json> first encrypt the json file using this command
