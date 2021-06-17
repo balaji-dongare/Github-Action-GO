@@ -25,7 +25,7 @@ jobs:
          git confi --global.email "bob@bot.com"
          git confi --global.name "bob"
          git fetch
-         git chekcout master
+         git checkout master
          git branch --set-upstream-to=origin/master
          git pull
          pwd 
