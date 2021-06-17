@@ -1,4 +1,3 @@
-#gpg --symmetric --cipher-algo AES256 <filepath/file.json> first encrypt the json file using this command
 name: Encrypt and Decrypt the secrets
 on : push
 jobs:
@@ -14,3 +13,4 @@ jobs:
          gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/secrets.json secretskeys.json.gpg
       - name: Print the Decrypted file contents
         run: cat $HOME/secrets.json
+        # gpg --symmetric --cipher-algo AES256 <filepath/file.json> first encrypt the json file using this command
