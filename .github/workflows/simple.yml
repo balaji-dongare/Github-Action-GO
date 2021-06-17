@@ -1,36 +1,36 @@
----
-name: Github Action Go1
-'on':
-  push:
+# ---
+# name: Github Action Go1
+# 'on':
+#   push:
     
-  pull_request:
-   types:
-     - opened
-     - reopened
-     - assigned
-jobs:
-  run-shell-commands-ubuntu:
-    runs-on: ubuntu-18.04
-    steps:
-      - name: install Go1
-        run: |
-          wget https://dl.google.com/go/go1.16.4.linux-amd64.tar.gz
-          sudo tar -C /usr/local -xzf go1.16.4.linux-amd64.tar.gz
-          export PATH=$PATH:/usr/local/go/bin
-          source ~/.profile
-          go version
-      - name: Use PythonShell
-        run: |
-          import platform
-          print(platform.processor())
-        shell: python
-  run-shell-commands-windows:
-    runs-on: windows-latest
-    needs:
-      - run-shell-commands-ubuntu
-    steps:
-      - name: Directory Powershell
-        run: Get-Location
-      - name: Check the Python Version
-        run: python --version
-        shell: bash
+#   pull_request:
+#    types:
+#      - opened
+#      - reopened
+#      - assigned
+# jobs:
+#   run-shell-commands-ubuntu:
+#     runs-on: ubuntu-18.04
+#     steps:
+#       - name: install Go1
+#         run: |
+#           wget https://dl.google.com/go/go1.16.4.linux-amd64.tar.gz
+#           sudo tar -C /usr/local -xzf go1.16.4.linux-amd64.tar.gz
+#           export PATH=$PATH:/usr/local/go/bin
+#           source ~/.profile
+#           go version
+#       - name: Use PythonShell
+#         run: |
+#           import platform
+#           print(platform.processor())
+#         shell: python
+#   run-shell-commands-windows:
+#     runs-on: windows-latest
+#     needs:
+#       - run-shell-commands-ubuntu
+#     steps:
+#       - name: Directory Powershell
+#         run: Get-Location
+#       - name: Check the Python Version
+#         run: python --version
+#         shell: bash
