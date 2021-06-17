@@ -27,8 +27,6 @@ jobs:
   create-commit :
     name: Create issue using REST-API
     runs-on: ubuntu-latest 
-    needs : 
-      - create-file-and-commit
     steps:
       - name: Create issue
         run: |
