@@ -7,9 +7,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Decrypt file
+        run: gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/secrets.json 
+         secretskeys.json.gpg
         env:
-          PASSPHRASE: ${{ secrets.ENCRYPT_DECRYP_KEY }}
-        run: gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/secrets.json secretskeys.json.gpg
+          PASSPHRASE: ${{secrets.ENCRYPT_DECRYP_KEY}}
       - name: Print the Decrypted file contents
         run: cat $HOME/secrets.json
         # gpg --symmetric --cipher-algo AES256 <filepath/file.json> first encrypt the json file using this command
