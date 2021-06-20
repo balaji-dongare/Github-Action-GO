@@ -15,7 +15,6 @@ jobs:
          - node-version : 6
          - os:  ubuntu-latest
          - node-version : 8
-    name: get node version
     runs-on: ${{matrix.os}}
     env:
       IS_UBUNTU_8: ${{matrix.is_ubuntu_8}}
