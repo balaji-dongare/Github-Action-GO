@@ -1,0 +1,25 @@
+name : Docker Container
+on : push
+jobs:
+  Node-Container:
+    name: Node Docker
+    runs-on: ubuntu-latest
+    container : 
+     image: node:16-alpine3.11
+    steps:
+      - name: Log Node Version
+        run: |
+         node -v
+         cat /etc/os-release 
+       
+  GO_Lan-Container:
+    name: GO Docker
+    runs-on: ubuntu-latest
+    container : 
+     image: golang:1.16.5-alpine3.14 
+    steps:
+      - name: Log Go Lang Version
+        run: |
+         go version
+         cat /etc/os-release 
+       
