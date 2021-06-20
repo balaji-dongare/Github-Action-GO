@@ -5,12 +5,10 @@ jobs:
     name: GO Docker
     runs-on: ubuntu-latest
     container : 
-     image: golang:1.16.5-alpine3.14 
+     image: golang:1.15.13-alpine3.13
     steps:
       - name: Log Go Lang Version
         run: |
-         ps --all --quiet --no-trunc --filter "label=8a33c1"
-         network prune --force --filter "label=8a33c1"
          go version
          cat /etc/os-release 
        
