@@ -43,4 +43,22 @@ jobs:
               { "username":"Balaji", "address": "pune"}''' 
       - name: Get Users
         run :  curl http://localhost:3001/api/users        
-   
+  Docker_Steps:
+    name: Docker steps
+    runs-on: ubuntu-latest
+    container: node:16-alpine3.11
+    steps:
+      - name : Log Node version
+        run: node -v
+      - name: Stesps With Docker
+        uses: docker://node:16-alpine3.12
+        with:
+         entrypoint: '/bin/echo'
+         args: "Hello Jhon" 
+      - name: Log Node Version As entrypoint
+        uses: docker://node:16-alpine3.12
+        with:
+         entrypoint: /usr/local/bin/node
+         args: -v    
+
+
