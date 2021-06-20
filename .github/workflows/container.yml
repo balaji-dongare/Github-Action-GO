@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       app:
-        image: balahidongare08/node-app:latest
+        image: balahidongare08/node-app
         ports:
          - 3001:3000
       mongo:
