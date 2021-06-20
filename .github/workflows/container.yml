@@ -72,11 +72,7 @@ jobs:
          entrypoint: ./script.sh
          args: "Jhon" 
 
-  Send_Slack_Notification:
-    name: Send Slack Notification
-    runs-on: ubuntu-latest
-    steps:
-      - name : send Notification
+      - name : Send Slack Notification          #Send a slack notification 
         uses: technosophos/slack-notify
         env:
          SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK}}
