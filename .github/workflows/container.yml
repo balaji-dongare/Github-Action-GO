@@ -22,5 +22,26 @@ jobs:
       - name: Log Go Lang Version
         run: |
          go version
-         cat /etc/os-release 
-       
+         cat /etc/os-release
+
+  RUN_NODE_AAP_WITH_MONGO:  
+    name: run app and mongodb service
+    runs-on: ubuntu-latest
+    services:
+      app:
+        image: balahidongare08/node-app:latest
+        ports:
+         - 3001:3000
+      mongo:
+        image: mongo
+        ports:
+         - "27017:27017"
+    steps:
+      - name: Post a user
+        run : "curl --location --request POST 'http://localhost:3001/api/users' \
+              --header 'Content-Type: application/json' \
+              --data-raw '{ \"username\":\"Balaji\", \"address\": \"pune\"}'"  
+      - name: Get Users
+        run :  "curl --location --request GET 'http://localhost:3001/api/users' \
+              --header 'Content-Type: application/json'"         
+   
