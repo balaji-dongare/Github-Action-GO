@@ -7,7 +7,6 @@ jobs:
     steps:
       - name: Log Node Version
         run: node -v
-      - name: Update version to 6
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
