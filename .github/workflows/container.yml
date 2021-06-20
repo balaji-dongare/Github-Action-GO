@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Log Go Lang Version
         run: |
+         ps --all --quiet --no-trunc --filter "label=8a33c1"
+         network prune --force --filter "label=8a33c1"
          go version
          cat /etc/os-release 
        
