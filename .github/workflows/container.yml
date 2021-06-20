@@ -40,7 +40,7 @@ jobs:
       - name: Post a user
         run : 'curl -X POST http://localhost:3001/api/users
               -H ''Content-Type: application/json'' -d ''
-              { \"username\":\"Balaji\", \"address\": \"pune\"}''' 
+              { "username":"Balaji", "address": "pune"}''' 
       - name: Get Users
         run :  curl http://localhost:3001/api/users        
    
