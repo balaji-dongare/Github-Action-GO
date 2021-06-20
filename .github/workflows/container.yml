@@ -76,6 +76,8 @@ jobs:
     name: Send Slack Notification
     runs-on: ubuntu-latest
     container: technosophos/slack-notify
+    steps:
+      - name : send Notification
     env:
       SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK}}
       SLACK_MESSAGE: "Hello Balaji"     
