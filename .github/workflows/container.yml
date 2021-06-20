@@ -65,7 +65,7 @@ jobs:
     name: Docker run Scripts
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/chekcout@v1
+      - uses: actions/checkout@v1
       - name : Run Scripts from docker
         uses: docker://node:16-alpine3.12
         with:
