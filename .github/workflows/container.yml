@@ -69,5 +69,5 @@ jobs:
       - name : Run Scripts from docker
         uses: docker://node:16-alpine3.12
         with:
-         entrypoint: .script.sh
+         entrypoint: ./script.sh
          args: "Jhon" 
