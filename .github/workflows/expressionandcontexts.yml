@@ -1,0 +1,137 @@
+name: Expression and contexts
+on: [push,pull_request ]
+
+jobs:
+  Expression-contexts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Dump job context
+        env:
+          JOB_CONTEXT: ${{ toJSON(job) }}
+        run: echo "$JOB_CONTEXT"
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJSON(steps) }}
+        run: echo "$STEPS_CONTEXT"
+      - name: Dump runner context
+        env:
+          RUNNER_CONTEXT: ${{ toJSON(runner) }}
+        run: echo "$RUNNER_CONTEXT"
+      - name: Dump strategy context
+        env:
+          STRATEGY_CONTEXT: ${{ toJSON(strategy) }}
+        run: echo "$STRATEGY_CONTEXT"
+      - name: Dump matrix context
+        env:
+          MATRIX_CONTEXT: ${{ toJSON(matrix) }}
+        run: echo "$MATRIX_CONTEXT"
+  Functions:
+    name: PreDefined Functions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump
+        run: |
+         echo ${{ contains( 'hello','ll' ) }}
+         echo ${{ startsWith( 'hello','he' ) }}
+         echo ${{ endsWith( 'hello','lo' ) }}
+         echo ${{ format( 'Hello {0} {1} {2}','World','!','!') }}
+  Conditions:
+    name:  If Condition
+    runs-on: ubuntu-latest
+    if: github.event_name=='push'
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Dump job context
+        env:
+          JOB_CONTEXT: ${{ toJSON(job) }}
+        run: echo "$JOB_CONTEXT"
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJSON(steps) }}
+        run: echo "$STEPS_CONTEXT"
+      - name: Dump runner context
+        env:
+          RUNNER_CONTEXT: ${{ toJSON(runner) }}
+        run: echo "$RUNNER_CONTEXT"
+      - name: Dump strategy context
+        env:
+          STRATEGY_CONTEXT: ${{ toJSON(strategy) }}
+        run: echo "$STRATEGY_CONTEXT"
+      - name: Dump matrix context
+        if: always()
+        env:
+          MATRIX_CONTEXT: ${{ toJSON(matrix) }}
+        run: echo "$MATRIX_CONTEXT"
+        #will run allways
+  Conditions-On-Error:
+    name: Continue-On-Error
+    runs-on: ubuntu-latest
+    if: github.event_name=='push'
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: eccho "$GITHUB_CONTEXT"
+        continue-on-error: true  #it will run next step even this fails
+      - name: Dump job context
+        env:
+          JOB_CONTEXT: ${{ toJSON(job) }}
+        run: echo "$JOB_CONTEXT"
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJSON(steps) }}
+        run: echo "$STEPS_CONTEXT"
+      - name: Dump runner context
+        env:
+          RUNNER_CONTEXT: ${{ toJSON(runner) }}
+        run: echo "$RUNNER_CONTEXT"
+      - name: Dump strategy context
+        env:
+          STRATEGY_CONTEXT: ${{ toJSON(strategy) }}
+        run: echo "$STRATEGY_CONTEXT"
+      - name: Dump matrix context
+        if: always()  # it will eun always
+        env:
+          MATRIX_CONTEXT: ${{ toJSON(matrix) }}
+        run: echo "$MATRIX_CONTEXT"
+        
+  Timeout-Minutes:
+    name: Timeout-In-Minutes
+    runs-on: ubuntu-latest
+    timeout-minutes: 360 # default is 360 minutes
+    if: github.event_name=='push'
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: eccho "$GITHUB_CONTEXT"
+        continue-on-error: true  #it will run next step even this fails
+        timeout-minutes: 1
+      - name: Dump job context
+        env:
+          JOB_CONTEXT: ${{ toJSON(job) }}
+        run: echo "$JOB_CONTEXT"
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJSON(steps) }}
+        run: echo "$STEPS_CONTEXT"
+      - name: Dump runner context
+        env:
+          RUNNER_CONTEXT: ${{ toJSON(runner) }}
+        run: echo "$RUNNER_CONTEXT"
+      - name: Dump strategy context
+        env:
+          STRATEGY_CONTEXT: ${{ toJSON(strategy) }}
+        run: echo "$STRATEGY_CONTEXT"
+      - name: Dump matrix context
+        if: always()  # it will eun always
+        env:
+          MATRIX_CONTEXT: ${{ toJSON(matrix) }}
+        run: echo "$MATRIX_CONTEXT"            
